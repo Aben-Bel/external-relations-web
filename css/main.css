@@ -123,6 +123,38 @@ p {
     width: 100%;
 }
 
+.flex-container{
+    display:flex;
+}
+
+.full {
+    width: 100%;
+}
+
+/* gallery */
+.gallery {
+    padding: 10px;
+    margin:5px;
+    width:77%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.gallery > * {
+    width: 30%;
+    margin:5px;
+    border: 2px solid grey;
+
+}
+
+.gallery-filters{
+    width:33%;
+}
+
+h4 {
+    margin:3px;
+}
+
+
 
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
