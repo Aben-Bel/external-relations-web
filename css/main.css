@@ -1,3 +1,17 @@
+/* round images */
+.round-image {
+    border-radius: 50%;
+    margin:8px;
+}
+
+/* header */
+.header {
+    position: relative;
+    background-color: #ffffff;
+    padding-top: 20px;
+    line-height: 1.4em;
+    justify-content: space-around;
+}
 
 
 /* Slideshow container */
@@ -80,10 +94,16 @@ p {
     line-height: 1.4em;
 }
 
-.main-aside-container {
+.flex-row-container{
     display: flex;
     flex-direction: row;
 }
+
+.flex-column-container{
+    display: flex;
+    flex-direction: column;
+}
+
 .main-aside-container main{
     padding:14px;
     width:77%;
@@ -97,11 +117,20 @@ p {
 }
 
 
+.sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
     .nav-container {        
         display:flex;
+        z-index: 1000;
         flex-direction: column;
+        justify-content: center;
         color:white;
     }
     .main-aside-container {
@@ -116,13 +145,11 @@ p {
   @media screen and (min-width: 600px) {
     .nav-container {
         display:flex;
-        position: relative;
-        position: fixed;
-        top: 0;
         z-index: 1000;
         width: 100%;
         margin-bottom:5px;
         flex-direction: row;
+        justify-content: center;
         background-color: white;
     }
   }
