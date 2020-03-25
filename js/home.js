@@ -1,8 +1,10 @@
-initilaizeSlideShow();
 
+window.onload = () => {
+    initilaizeSlideShow();
+    showArchive();
+}
 
 /* For slideshow */
-
 
 function initilaizeSlideShow() {
     const slides = document.querySelectorAll(".mySlides");
@@ -43,5 +45,116 @@ function showSlides(slideIndex) {
     if (slideIndex > slides.length) { slideIndex = 1 }
 
     slides[slideIndex - 1].style.display = "block";
-    setInterval(()=> {showSlides(slideIndex)}, 5000);
+    setInterval(() => { showSlides(slideIndex) }, 5000);
+}
+
+function showArchive() {
+    const archive = document.querySelector("#archive");
+
+    const fetchedArchive = [
+        {
+            name: "2020",
+            list: [
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                }
+            ]
+        },
+        {
+            name: "2019",
+            list: [
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                }
+            ]
+        },
+        {
+            name: "2018",
+            list: [
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+                {
+                    name: "global warming",
+                    link: "#"
+                }
+            ]
+        },
+        {
+            name: "2020",
+            list: [
+                {
+                    name: "global warming",
+                    link: "#"
+                },
+            ]
+        }
+    ]
+    
+    const fragment = document.createDocumentFragment();
+    fetchedArchive.forEach((list)=>{
+        const li = document.createElement("LI");
+
+        const span = document.createElement("SPAN");
+        span.classList.add("caret");
+        span.textContent = list.name;
+        span.addEventListener("click", (e)=>{
+            console.log(e.target.parentElement);
+            e.target.parentElement.querySelector(".nested").classList.toggle("expand");
+            e.target.classList.toggle("caret-down");
+        })
+        li.appendChild(span);
+
+        const ul = document.createElement("UL");
+        ul.classList.add("nested");
+
+        list.list.forEach((child) => {
+            const li = document.createElement("LI");
+            const a = document.createElement("A");
+            a.href = child.link;
+            a.textContent = child.name;
+
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+
+        li.appendChild(ul);
+        fragment.appendChild(li);
+    });
+    archive.appendChild(fragment);
 }

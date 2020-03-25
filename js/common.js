@@ -1,15 +1,15 @@
 window.onscroll = () => {
     return scrolled();
-}
+};
 
 
-function scrolled() {
-    topnav = document.querySelector(".nav-container");
-    header = document.querySelector(".header");
+const scrolled = () => {
+    const topnav = document.querySelector(".nav-container");
+    const header = document.querySelector(".header");
+
     if (window.pageYOffset > header.offsetHeight) {
         topnav.classList.add("sticky");
-    }else{
+    } else {
         topnav.classList.remove("sticky");
     }
-
-}
+};
